@@ -1,0 +1,100 @@
+<section>
+  <div class="page-header">
+    <h1>Contact</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="contac in vm.contacs" ui-sref="contacs.view({ contacId: contac._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="contac.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="contac.user" ng-bind="contac.user.displayName"></span>
+        <span ng-if="!contac.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="contac.title"></h4>
+      <p class="list-group-item-text" ng-bind="contac.content"></p>
+    </a>
+  </div>
+
+
+  <!-- <div class="alert alert-warning text-center" ng-if="vm.contacs.$resolved && !vm.contacs.length">
+    No contacs yet, why don't you <a ui-sref="contacs.create">create one</a>?
+  </div>
+  -->
+<div class="row">
+    <div class="col-sm-6" ng-repeat="alert in alerts">
+      <div class="row">
+         <div class="col-xs-2">
+            <h1>
+              <button type="button" class="btn" ng-class="alert.color5">
+                <i class="glyphicon" ng-class="alert.name_icon"></i>
+              </button>
+            </h1>
+         </div>
+        <div class="col-xs-10">
+        <h2>Name: {{alert.name}}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6" ng-repeat="alert in alerts">
+      <div class="row">
+        <div class="col-xs-2">
+          <h1>
+            <button type="button" class="btn" ng-class="alert.color4">
+              <i class="glyphicon" ng-class="alert.email_icon"></i>
+            </button>
+          </h1>
+        </div>
+        <div class="col-xs-10">
+          <h2>Email: {{alert.email}}</h2>
+        </div>
+      </div>
+    </div>
+
+  <div class="col-sm-6" ng-repeat="alert in alerts">
+    <div class="row">
+      <div class="col-xs-2">
+        <h1>
+          <button type="button" class="btn" ng-class="alert.color2">
+            <i class="glyphicon" ng-class="alert.skype_icon"></i>
+          </button>
+        </h1>
+      </div>
+      <div class="col-xs-10">
+        <h2>Skype: {{alert.skype}}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6" ng-repeat="alert in alerts">
+    <div class="row">
+      <div class="col-xs-2">
+        <h1>
+          <button type="button" class="btn" ng-class="alert.color1">
+            <i class="glyphicon" ng-class="alert.telephone_icon"></i>
+          </button>
+        </h1>
+      </div>
+      <div class="col-xs-10">
+        <h2>Telephone: {{alert.telephone}}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6" ng-repeat="alert in alerts">
+    <div class="row">
+      <div class="col-xs-2">
+        <h1>
+          <button type="button" class="btn" ng-class="alert.color3">
+            <i class="glyphicon" ng-class="alert.facebook_icon"></i>
+          </button>
+        </h1>
+      </div>
+      <div class="col-xs-10">
+        <h2>Facebook: {{alert.facebook}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,23 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.portfoli.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="vm.portfoli.isCurrentUserOwner">
+    <a class="btn btn-primary" ui-sref="portfolis.edit({ portfoliId: vm.portfoli._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.portfoli.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.portfoli.user" ng-bind="vm.portfoli.user.displayName"></span>
+      <span ng-if="!vm.portfoli.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.portfoli.content"></p>
+</section>

@@ -1,0 +1,24 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.contac.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="vm.contac.isCurrentUserOwner">
+    <a class="btn btn-primary" ui-sref="contacs.edit({ contacId: vm.contac._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.contac.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.contac.user" ng-bind="vm.contac.user.displayName"></span>
+      <span ng-if="!vm.contac.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.contac.content"></p>
+</section>
